@@ -23,6 +23,7 @@ public class ConfigHandler extends DuskConfig {
 	@Entry public static boolean sendMessageOnCreationFailure = true;
 	@Entry public static boolean sendMessageOnCreationSuccess = true;
 	@Entry public static boolean sendDeathCoordinatesInChat = true;
+	@Entry public static boolean useStoreOnDeathTag = false;
 	@Entry public static String creationFailureMessage = "Your items are not safe due to having insufficient materials. Missing: %plankamount% planks.";
 	@Entry public static String creationSuccessMessage = "Your items are safe at your death location.";
 
@@ -56,6 +57,9 @@ public class ConfigHandler extends DuskConfig {
 		));
 		configMetaData.put("createVoidPlatform", Arrays.asList(
 			"If a 3x3 platform should be created below the chest above the void. 'createChestAboveVoid' must be enabled."
+		));
+		configMetaData.put("useStoreOnDeathTag", Arrays.asList(
+			"If only items with store_on_death tag should be stored in the chest."
 		));
 		configMetaData.put("sendMessageOnCreationFailure", Arrays.asList(
 			"If a message should be sent if the chest or armor stand can't be created due to missing materials."

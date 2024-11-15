@@ -41,7 +41,12 @@ public class DeathEvent {
 		String playerName = player.getName().getString();
 		
 		List<ItemStack> itemStacks = Util.getInventoryItems(player);
-		
+
+		if (ConfigHandler.useStoreOnDeathTag) {
+			itemStacks.removeIf(
+					itemStack -> itemStack.getTags().noneMatch(tagKey -> tagKey.toString().contains("store_on_death")));
+		}
+
 		int totalItemCount = 0;
 		for (ItemStack itemStack : itemStacks) {
 			if (!itemStack.isEmpty()) {
